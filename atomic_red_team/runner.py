@@ -25,7 +25,7 @@ app = typer.Typer(help="Atomic Red Team Maintenance tool CLI helper")
 @app.command()
 def generate_guids():
     """Generates missing GUIDs for the atomic files"""
-    with open(used_guids_file, "r") as file:
+    with open(used_guids_file, "r", encoding="utf-8") as file:
         used_guids = file.readlines()
 
     for file in glob.glob(f"{atomics_path}/T*/T*.yaml"):
